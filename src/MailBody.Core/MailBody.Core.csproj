@@ -8,6 +8,11 @@
         <PackageProjectUrl>https://github.com/litebus/MailBody.Core</PackageProjectUrl>
         <PackageLicenseUrl>https://github.com/litebus/MailBody.Core/blob/master/LICENSE</PackageLicenseUrl>
         <RepositoryUrl>https://github.com/litebus/MailBody.Core</RepositoryUrl>
+        <PackageIcon>icon.png</PackageIcon>
     </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="..\..\assets\logo\icon.png" Pack="true" PackagePath=""/>
+    </ItemGroup>
 
 </Project>
