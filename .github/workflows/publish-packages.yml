@@ -1,0 +1,27 @@
+name: Publish Packages
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 6.0.100
+      - name: Install Dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+
+      - name: Publish MailBody.Core
+        uses: brandedoutcast/publish-nuget@v2.5.5
+        with:
+          PROJECT_FILE_PATH: src/MailBody.Core/MailBody.Core.csproj
+          NUGET_KEY: ${{secrets.Nuget_API_Key}}
+          NUGET_SOURCE: https://api.nuget.org
