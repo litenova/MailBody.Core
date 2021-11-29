@@ -13,7 +13,7 @@
 
 <p align="center">
   <a href="https://github.com/litenova/MailBody.Core/actions/workflows/dotnet-core.yml">
-    <img src="https://github.com/arishk/MailBody.Core/actions/workflows/dotnet-core.yml/badge.svg?branch=main">
+    <img src="https://github.com/litenova/MailBody.Core/actions/workflows/dotnet-core.yml/badge.svg?branch=main">
   </a>
   <a href="https://www.nuget.org/packages/MailBody.Core">
     <img src="https://img.shields.io/nuget/vpre/MailBody.Core.svg">
