@@ -8,7 +8,8 @@
   <br>
 </h1>
 
-<h4 align="center">This is a port of <a href="https://github.com/doxakis/MailBody">MainBody</a> to .NET 6.</h4>
+<h4 align="center">This is a port of <a href="https://github.com/doxakis/MailBody">MailBody</a> to .NET 6.</h4>
+<p align="center">For more information about MailBody, read the orignal repository Readme.</p>
 <p align="center">Click the nuget badge below to install this library</p>
 
 <p align="center">
