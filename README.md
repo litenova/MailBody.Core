@@ -17,6 +17,6 @@
     <img src="https://github.com/litenova/MailBody.Core/actions/workflows/dotnet-core.yml/badge.svg?branch=main">
   </a>
   <a href="https://www.nuget.org/packages/MailBody.Core">
-    <img src="https://img.shields.io/nuget/vpre/MailBody.Core.svg">
+    <img src="https://img.shields.io/nuget/v/MailBody.Core">
   </a>
 </p>
