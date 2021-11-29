@@ -8,7 +8,8 @@
   <br>
 </h1>
 
-<h4 align="center">An easy-to-use and ambitious and in-process mediator to implement CQS</h4>
+<h4 align="center">This is a port of <a href="https://github.com/doxakis/MailBody">MainBody</a> to .NET 6.</h4>
+<p align="center">Click the nuget badge below to install this library</p>
 
 <p align="center">
   <a href="https://github.com/litenova/MailBody.Core/actions/workflows/dotnet-core.yml">
