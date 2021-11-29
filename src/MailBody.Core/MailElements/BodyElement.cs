@@ -1,0 +1,6 @@
+﻿namespace MailBody.Core.MailElements;
+
+public class BodyElement : ContentElement
+{
+    public string Footer { get; set; }
+}
