@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <Description>EPPlus.Core is port of MailBody library to .NET 6</Description>
-        <Version>0.1.0</Version>
+        <Description>generate transactional emails</Description>
+        <Version>0.2.0</Version>
         <TargetFramework>net6.0</TargetFramework>
         <PackageTags>transactional;email</PackageTags>
         <PackageProjectUrl>https://github.com/litebus/MailBody.Core</PackageProjectUrl>
