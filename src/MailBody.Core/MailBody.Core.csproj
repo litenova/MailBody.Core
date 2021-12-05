@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <Description>generate transactional emails</Description>
-        <Version>0.2.0</Version>
+        <Version>0.3.0</Version>
         <TargetFramework>net6.0</TargetFramework>
         <PackageTags>transactional;email</PackageTags>
         <PackageProjectUrl>https://github.com/litebus/MailBody.Core</PackageProjectUrl>

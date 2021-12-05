@@ -3,8 +3,10 @@
 using System.Reflection;
 using System.Threading.Channels;
 using MailBody.Core;
+using MailBody.Core.Styles.Default;
 
 var html = new MailBodyBuilder()
+           .WithDefaultLayout()
            .WithParagraph("Please confirm your email address by clicking the link below.")
            .WithParagraph("We may need to send you critical information about our service and it is important that we have an accurate email address.")
            .WithButton("https://example.com/", "Confirm Email Address")
