@@ -8,7 +8,7 @@
   <br>
 </h1>
 
-<h4 align="center">This is a complete and simplified rewrite of <a href="https://github.com/doxakis/MailBody">MailBody</a> in .NET 6</h4>
+<h4 align="center">This is a simplified and complete rewrite of <a href="https://github.com/doxakis/MailBody">MailBody</a> in .NET 6</h4>
 <p align="center">Generate transactional emails such as forget password, order completed, etc.</p>
 
 <p align="center">
