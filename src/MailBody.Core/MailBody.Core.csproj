@@ -1,9 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <Description>generate transactional emails</Description>
-        <Version>0.3.0</Version>
+        <Description>Generate transactional emails such as forget password, order completed, etc.</Description>
+        <Version>0.4.0</Version>
         <TargetFramework>net6.0</TargetFramework>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageTags>transactional;email</PackageTags>
         <PackageProjectUrl>https://github.com/litebus/MailBody.Core</PackageProjectUrl>
         <PackageLicenseUrl>https://github.com/litebus/MailBody.Core/blob/master/LICENSE</PackageLicenseUrl>
@@ -14,6 +15,7 @@
 
     <ItemGroup>
         <None Include="..\..\assets\logo\icon.png" Pack="true" PackagePath="" />
+        <None Include="..\..\README.md" Pack="true" PackagePath="\"/>
     </ItemGroup>
 
 </Project>

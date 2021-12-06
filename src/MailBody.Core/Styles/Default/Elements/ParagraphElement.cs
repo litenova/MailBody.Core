@@ -5,7 +5,7 @@ namespace MailBody.Core.Styles.Default.Elements;
 
 public class ParagraphElement : IMailElement
 {
-    public ParagraphElement(string content, string? style, string? @class)
+    public ParagraphElement(string content, string? style = null, string? @class = null)
     {
         Content = content;
         Style = style ??

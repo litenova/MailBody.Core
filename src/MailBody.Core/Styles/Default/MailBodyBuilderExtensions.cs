@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using MailBody.Core.Abstractions;
+using MailBody.Core.Internal;
 using MailBody.Core.Styles.Default.Elements;
 using MailBody.Core.Styles.Default.Layouts;
 
@@ -7,11 +9,22 @@ namespace MailBody.Core.Styles.Default;
 
 public static class MailBodyBuilderExtensions
 {
-    public static IMailBlockBuilder WithDefaultLayout(this IMailBodyBuilder mailBodyBuilder, string? footer = null)
+    public static IMailBlockBuilder WithDefaultLayout(this IMailBodyBuilder mailBodyBuilder, string footer)
     {
         return mailBodyBuilder.WithLayout(new DefaultLayout(footer));
     }
-    
+
+    public static IMailBlockBuilder WithDefaultLayout(this IMailBodyBuilder mailBodyBuilder)
+    {
+        return mailBodyBuilder.WithLayout(new DefaultLayout());
+    }
+
+    public static IMailBlockBuilder WithDefaultLayout(this IMailBodyBuilder mailBodyBuilder,
+                                                      Action<IMailBlockBuilder> footer)
+    {
+        return mailBodyBuilder.WithLayout(new DefaultLayout(footer.ToHtml()));
+    }
+
     public static IMailBlockBuilder WithBreakLine(this IMailBlockBuilder mailBodyBuilder)
     {
         return mailBodyBuilder.WithElement(new BreakLineElement());
@@ -22,15 +35,22 @@ public static class MailBodyBuilderExtensions
         return mailBodyBuilder.WithElement(new ButtonElement(link, content));
     }
 
+    public static IMailBlockBuilder WithButton(this IMailBlockBuilder mailBodyBuilder,
+                                               string link,
+                                               Action<IMailBlockBuilder> content)
+    {
+        return mailBodyBuilder.WithElement(new ButtonElement(link, content.ToHtml()));
+    }
+
     public static IMailBlockBuilder WithButton(this IMailBlockBuilder mailBodyBuilder, ButtonElement buttonElement)
     {
         return mailBodyBuilder.WithElement(buttonElement);
     }
 
     public static IMailBlockBuilder WithImage(this IMailBlockBuilder mailBodyBuilder,
-                                             string src,
-                                             string alt,
-                                             string? style = null)
+                                              string src,
+                                              string alt,
+                                              string? style = null)
     {
         return mailBodyBuilder.WithElement(new ImageElement(src, alt, style));
     }
@@ -41,11 +61,19 @@ public static class MailBodyBuilderExtensions
     }
 
     public static IMailBlockBuilder WithLink(this IMailBlockBuilder mailBodyBuilder,
-                                            string content,
-                                            string link,
-                                            LinkTarget target = LinkTarget.Blank)
+                                             string content,
+                                             string link,
+                                             LinkTarget target = LinkTarget.Blank)
     {
         return mailBodyBuilder.WithElement(new LinkElement(content, link, target));
+    }
+
+    public static IMailBlockBuilder WithLink(this IMailBlockBuilder mailBodyBuilder,
+                                             Action<IMailBlockBuilder> content,
+                                             string link,
+                                             LinkTarget target = LinkTarget.Blank)
+    {
+        return mailBodyBuilder.WithElement(new LinkElement(content.ToHtml(), link, target));
     }
 
     public static IMailBlockBuilder WithLink(this IMailBlockBuilder mailBodyBuilder, LinkElement element)
@@ -54,11 +82,19 @@ public static class MailBodyBuilderExtensions
     }
 
     public static IMailBlockBuilder WithParagraph(this IMailBlockBuilder mailBodyBuilder,
-                                                 string content,
-                                                 string? style = null,
-                                                 string? @class = null)
+                                                  string content,
+                                                  string? style = null,
+                                                  string? @class = null)
     {
         return mailBodyBuilder.WithElement(new ParagraphElement(content, style, @class));
+    }
+
+    public static IMailBlockBuilder WithParagraph(this IMailBlockBuilder mailBodyBuilder,
+                                                  Action<IMailBlockBuilder> content,
+                                                  string? style = null,
+                                                  string? @class = null)
+    {
+        return mailBodyBuilder.WithElement(new ParagraphElement(content.ToHtml(), style, @class));
     }
 
     public static IMailBlockBuilder WithParagraph(this IMailBlockBuilder mailBodyBuilder, ParagraphElement element)
@@ -71,18 +107,32 @@ public static class MailBodyBuilderExtensions
         return mailBodyBuilder.WithElement(new RawElement(content));
     }
 
+    public static IMailBlockBuilder WithRaw(this IMailBlockBuilder mailBodyBuilder, Action<IMailBlockBuilder> content)
+    {
+        return mailBodyBuilder.WithElement(new RawElement(content.ToHtml()));
+    }
+
     public static IMailBlockBuilder WithRaw(this IMailBlockBuilder mailBodyBuilder, RawElement element)
     {
         return mailBodyBuilder.WithElement(element);
     }
 
     public static IMailBlockBuilder WithText(this IMailBlockBuilder mailBodyBuilder,
-                                            string content,
-                                            TextElement.TextType type = TextElement.TextType.Span,
-                                            string? style = null,
-                                            string? @class = null)
+                                             string content,
+                                             TextElement.TextType type = TextElement.TextType.Span,
+                                             string? style = null,
+                                             string? @class = null)
     {
         return mailBodyBuilder.WithElement(new TextElement(content, type, style, @class));
+    }
+
+    public static IMailBlockBuilder WithText(this IMailBlockBuilder mailBodyBuilder,
+                                             Action<IMailBlockBuilder> content,
+                                             TextElement.TextType type = TextElement.TextType.Span,
+                                             string? style = null,
+                                             string? @class = null)
+    {
+        return mailBodyBuilder.WithElement(new TextElement(content.ToHtml(), type, style, @class));
     }
 
     public static IMailBlockBuilder WithText(this IMailBlockBuilder mailBodyBuilder, TextElement element)
@@ -91,8 +141,9 @@ public static class MailBodyBuilderExtensions
     }
 
     public static IMailBlockBuilder WithList(this IMailBlockBuilder mailBodyBuilder,
-                                            ListElement.ListType type,
-                                            IEnumerable<ListItemElement> items)
+                                             
+                                             ListElement.ListType type,
+                                             IEnumerable<ListItemElement> items)
     {
         return mailBodyBuilder.WithElement(new ListElement(type, items));
     }
