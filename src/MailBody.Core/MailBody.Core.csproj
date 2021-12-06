@@ -2,20 +2,20 @@
 
     <PropertyGroup>
         <Description>Generate transactional emails such as forget password, order completed, etc.</Description>
-        <Version>0.4.0</Version>
+        <Version>0.5.0</Version>
         <TargetFramework>net6.0</TargetFramework>
-        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageReadmeFile>Nuget-README.md</PackageReadmeFile>
         <PackageTags>transactional;email</PackageTags>
-        <PackageProjectUrl>https://github.com/litebus/MailBody.Core</PackageProjectUrl>
-        <PackageLicenseUrl>https://github.com/litebus/MailBody.Core/blob/master/LICENSE</PackageLicenseUrl>
-        <RepositoryUrl>https://github.com/litebus/MailBody.Core</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/litenova/MailBody.Core</PackageProjectUrl>
+        <PackageLicenseUrl>https://github.com/litenova/MailBody.Core/blob/master/LICENSE</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/litenova/MailBody.Core</RepositoryUrl>
         <PackageIcon>icon.png</PackageIcon>
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <ItemGroup>
         <None Include="..\..\assets\logo\icon.png" Pack="true" PackagePath="" />
-        <None Include="..\..\README.md" Pack="true" PackagePath="\"/>
+        <None Include="..\..\Nuget-README.md" Pack="true" PackagePath="\"/>
     </ItemGroup>
 
 </Project>
